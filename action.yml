@@ -1,0 +1,18 @@
+name: 'SecureStack Analysis'
+description: 'Execute SecureStack Analysis'
+inputs:
+  command:  # id of input
+    description: 'The bloodhound-cli command to execute'
+    required: true
+    default: 'help'
+  flags: # id of input
+    description: 'The optional flags to use with the bloodhound-cli command to be executed'  
+outputs:
+  result: # id of output
+    description: 'Analysis result'
+runs:
+  using: 'docker'
+  image: 'docker://securestackau/bloodhound-cli'
+  args:
+    - ${{ inputs.command }}
+    - ${{ inputs.flags }}
