@@ -1,0 +1,20 @@
+on: 
+  push:
+    branches:
+      - main
+  label:
+    types: [created]
+
+jobs:
+  moo_job:
+    runs-on: ubuntu-latest
+    name: A job to execute exposure analysis
+    steps:
+      - name: Exposure analysis step
+        id: exposure
+        uses: actions/securestack@v1.0.0
+        with:
+          action: 'version'
+      # Use the output from the `hello` step
+      - name: Get the analysis result
+        run: echo "The time was ${{ steps.exposure.outputs.result }}"
