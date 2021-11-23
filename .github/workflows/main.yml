@@ -1,9 +1,4 @@
-on: 
-  push:
-    branches:
-      - main
-  label:
-    types: [created]
+on: push
 
 jobs:
   moo_job:
