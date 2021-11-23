@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Exposure analysis step
         id: exposure
-        uses: actions/securestack@v1.0.0
+        uses: actions/securestack@v0.1.0
         with:
           action: 'version'
       # Use the output from the `hello` step
