@@ -12,4 +12,4 @@ jobs:
           command: 'version'
       # Use the output from the `hello` step
       - name: Get the analysis result
-        run: echo "Analysis Result: ${{ steps.exposure.outputs.result }}"
+        run: echo "Analysis Result:- ${{ steps.exposure.outputs.result }}"
