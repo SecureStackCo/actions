@@ -9,7 +9,7 @@ jobs:
         id: exposure
         uses: SecureStackCo/securestack@v0.1.0
         with:
-          action: 'version'
+          command: 'version'
       # Use the output from the `hello` step
       - name: Get the analysis result
         run: echo "The time was ${{ steps.exposure.outputs.result }}"
