@@ -1,15 +1,16 @@
 on: push
 
 jobs:
-  moo_job:
+  analysis_job:
     runs-on: ubuntu-latest
-    name: A job to execute exposure analysis
+    name: A job to execute analysis
     steps:
       - name: Exposure analysis step
         id: exposure
         uses: SecureStackCo/securestack@v0.1.0
         with:
-          command: 'version'
+          securestack_api_key: 'aslkmalksmalksx'
+          securestack_app_id: 'aslkmxalksmxalksmx'
       # Use the output from the `hello` step
       - name: Get the analysis result
         run: echo "Analysis Result:- ${{ steps.exposure.outputs.result }}"

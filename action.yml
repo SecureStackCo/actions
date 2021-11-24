@@ -1,18 +1,20 @@
-name: 'SecureStack Analysis'
-description: 'Execute SecureStack Analysis'
+name: 'SecureStack Exposure Analysis'
+description: 'Execute SecureStack Exposure Analysis'
 inputs:
-  command:  # id of input
-    description: 'The bloodhound-cli command to execute'
+  securestack_api_key:
+    description: 'SecureStack API key - generate one at https://app.securestack.com'
     required: true
-    default: 'help'
-  flags: # id of input
-    description: 'The optional flags to use with the bloodhound-cli command to be executed'  
+  securestack_app_id:
+    description: 'SecureStack Application ID - available when viewing applications at https://app.securestack.com'
+    required: true
 outputs:
-  result: # id of output
-    description: 'Analysis result'
+  result:
+    description: 'Exposure Analysis Result'
 runs:
   using: 'docker'
   image: 'docker://securestackau/bloodhound-cli'
+  env:
+    BH_API_KEY: ${{ inputs.securestack_api_key }}
+    BH_APP_ID: ${{ inputs.securestack_app_id }}
   args:
-    - ${{ inputs.command }}
-    - ${{ inputs.flags }}
+    - recon
