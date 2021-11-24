@@ -9,7 +9,7 @@ jobs:
         id: exposure
         uses: SecureStackCo/securestack@v0.1.0
         with:
-          securestack_api_key: 'aslkmalksmalksx'
+          securestack_api_key: 'aslksmalksmalksx'
           securestack_app_id: 'aslkmxalksmxalksmx'
       # Use the output from the `hello` step
       - name: Get the analysis result
