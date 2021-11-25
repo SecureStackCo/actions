@@ -28,4 +28,7 @@ runs:
     BH_APP_ID: ${{ inputs.securestack_app_id }}
     BH_SEVERITY: ${{ inputs.severity }}
   args:
-    - code -t ${{ inputs.language }}${{ inputs.flags }}
+    - code
+    - -t
+    - ${{ inputs.language }}
+    - ${{ inputs.flags }}
