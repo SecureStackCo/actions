@@ -1,0 +1,6 @@
+{
+  "name": "test package for code github action",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
