@@ -3,13 +3,33 @@ on: push
 jobs:
   analysis_job:
     runs-on: ubuntu-latest
-    name: A job to execute analysis
+    name: A job to execute analysis on an application
     steps:
-      - name: Exposure analysis step
+      - name: Exposure Analysis Step
         id: exposure
-        uses: SecureStackCo/securestack@main
+        uses: SecureStackCo/securestack/actions/exposure@main
         with:
-          securestack_api_key: '60b6eafb22d63e006a378d8a.o0x085iYrxXSJuHMF2CR'
+          securestack_api_key: ${{ secrets.SECURESTACK_API_KEY_SECRET }}
           securestack_app_id: '3164cc31-80ad-40a8-924d-9667058ad250'
-      - name: Get the analysis result
+          severity: critical
+      - name: Get the exposure analysis result
         run: echo "Analysis Result:- ${{ steps.exposure.outputs.result }}"
+      - name: Software Compoistion Analysis Step
+        id: code
+        uses: SecureStackCo/securestack/actions/code@main
+        with:
+          securestack_api_key: ${{ secrets.SECURESTACK_API_KEY_SECRET }}
+          securestack_app_id: '3164cc31-80ad-40a8-924d-9667058ad250'
+          severity: critical
+          language: node
+      - name: Get the software composition analysis result
+        run: echo "Analysis Result:- ${{ steps.code.outputs.result }}"
+      - name: Secrets Analysis Step
+        id: secrets
+        uses: SecureStackCo/securestack/actions/secrets@main
+        with:
+          securestack_api_key: ${{ secrets.SECURESTACK_API_KEY_SECRET }}
+          securestack_app_id: '3164cc31-80ad-40a8-924d-9667058ad250'
+          severity: critical
+      - name: Get the secrets analysis result
+        run: echo "Analysis Result:- ${{ steps.secrets.outputs.result }}"

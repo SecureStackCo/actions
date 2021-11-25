@@ -10,9 +10,15 @@ inputs:
   severity:
     description: 'Severities lower than this value will not be reported; value should be one of: critical | high | medium | low'
     required: true
+  language:
+    description: 'Language used for repo code; value should be one of: node | python | go'
+    required: true
+  flags:
+    description: 'Optional flags for the bloodhound-cli code command'
+    required: false
 outputs:
   result:
-    description: 'Exposure Analysis Result'
+    description: 'Code Analysis Result'
 runs:
   using: 'docker'
   image: 'docker://securestackau/bloodhound-cli'
@@ -21,4 +27,4 @@ runs:
     BH_APP_ID: ${{ inputs.securestack_app_id }}
     BH_SEVERITY: ${{ inputs.severity }}
   args:
-    - recon
+    - code -t ${{ inputs.language }} ${{ inputs.flags }}
