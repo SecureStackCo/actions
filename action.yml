@@ -16,5 +16,6 @@ runs:
   env:
     BH_API_KEY: ${{ inputs.securestack_api_key }}
     BH_APP_ID: ${{ inputs.securestack_app_id }}
+    BH_SEVERITY: 'critical'
   args:
-    - bloodhound-cli recon -a ${{ inputs.securestack_app_id }}
+    - recon
