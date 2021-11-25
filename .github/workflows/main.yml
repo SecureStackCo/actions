@@ -14,6 +14,9 @@ jobs:
           severity: critical
       - name: Get the exposure analysis result
         run: echo "Analysis Result:- ${{ steps.exposure.outputs.result }}"
+      - name: Checkout repo for test node package metadata files
+        id: init
+        uses: actions/checkout@v2.4.0
       - name: Software Compoistion Analysis Step
         id: code
         uses: SecureStackCo/securestack/actions/code@main
