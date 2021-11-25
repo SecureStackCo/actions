@@ -32,3 +32,5 @@ runs:
     - -t
     - ${{ inputs.language }}
     - ${{ inputs.flags }}
+    - -p
+    - .github/workflows/test
