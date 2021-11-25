@@ -7,6 +7,9 @@ inputs:
   securestack_app_id:
     description: 'SecureStack Application ID - available when viewing applications at https://app.securestack.com'
     required: true
+  severity:
+    description: 'Severities lower than this value will not be reported - one of critical|high|medium|low'
+    required: true
 outputs:
   result:
     description: 'Exposure Analysis Result'

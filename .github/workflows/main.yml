@@ -11,6 +11,5 @@ jobs:
         with:
           securestack_api_key: '60b6eafb22d63e006a378d8a.o0x085iYrxXSJuHMF2CR'
           securestack_app_id: '3164cc31-80ad-40a8-924d-9667058ad250'
-      # Use the output from the `hello` step
       - name: Get the analysis result
         run: echo "Analysis Result:- ${{ steps.exposure.outputs.result }}"
