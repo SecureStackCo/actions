@@ -11,11 +11,12 @@ inputs:
     description: 'Severities lower than this value will not be reported; value should be one of: critical | high | medium | low'
     required: true
   language:
-    description: 'Language used for repo code; value should be one of: node | python | go'
+    description: 'Language used for repo code; value should be one of: node | python | yarn'
     required: true
   flags:
     description: 'Optional flags for the bloodhound-cli code command'
     required: false
+    default: ''
 outputs:
   result:
     description: 'Code Analysis Result'
