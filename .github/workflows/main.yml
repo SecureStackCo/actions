@@ -14,6 +14,10 @@ jobs:
           severity: critical
       - name: Get the exposure analysis result
         run: echo "Analysis Result:- ${{ steps.exposure.outputs.result }}"
+      - name: Show stuff
+        shell: bash
+        run:
+          pwd; ls -la
       - name: Checkout repo for test node package metadata files
         id: init
         uses: actions/checkout@v2.4.0
