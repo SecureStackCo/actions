@@ -17,6 +17,10 @@ inputs:
     description: 'Optional flags for the bloodhound-cli code command'
     required: false
     default: ''
+  package_metadata_path:
+    description: 'Optional location for package metadata files'
+    required: false
+    default: ''
 outputs:
   result:
     description: 'Code Analysis Result'
@@ -33,4 +37,4 @@ runs:
     - ${{ inputs.language }}
     - ${{ inputs.flags }}
     - -p
-    - .github/workflows/test/
+    - /github/workspace/${{ package_metadata_path }}
