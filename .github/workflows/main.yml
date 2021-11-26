@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Exposure Analysis Step
         id: exposure
-        uses: SecureStackCo/securestack/actions/exposure@main
+        uses: SecureStackCo/actions/exposure@main
         with:
           securestack_api_key: ${{ secrets.SECURESTACK_API_KEY_SECRET }}
           securestack_app_id: '9c6e7657-cd51-4af6-a30c-eca474b9f19c'
@@ -23,7 +23,7 @@ jobs:
           pwd; ls -la
       - name: Software Compoistion Analysis Step
         id: code
-        uses: SecureStackCo/securestack/actions/code@main
+        uses: SecureStackCo/actions/code@main
         with:
           securestack_api_key: ${{ secrets.SECURESTACK_API_KEY_SECRET }}
           securestack_app_id: '9c6e7657-cd51-4af6-a30c-eca474b9f19c'
@@ -34,7 +34,7 @@ jobs:
         run: echo "Analysis Result:- ${{ steps.code.outputs.result }}"
       - name: Secrets Analysis Step
         id: secrets
-        uses: SecureStackCo/securestack/actions/secrets@main
+        uses: SecureStackCo/actions/secrets@main
         with:
           securestack_api_key: ${{ secrets.SECURESTACK_API_KEY_SECRET }}
           securestack_app_id: '9c6e7657-cd51-4af6-a30c-eca474b9f19c'
