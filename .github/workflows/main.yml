@@ -39,5 +39,6 @@ jobs:
           securestack_api_key: ${{ secrets.SECURESTACK_API_KEY_SECRET }}
           securestack_app_id: '9c6e7657-cd51-4af6-a30c-eca474b9f19c'
           severity: critical
+          flags: '-z -i'
       - name: Get the secrets analysis result
         run: echo "Analysis Result:- ${{ steps.secrets.outputs.result }}"
