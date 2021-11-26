@@ -13,14 +13,10 @@ inputs:
   language:
     description: 'Language used for repo code; value should be one of: node | python | yarn'
     required: true
-  flags:
-    description: 'Optional flags for the bloodhound-cli code command'
-    required: false
-    default: ''
   package_metadata_path:
     description: 'Optional location for package metadata files'
     required: false
-    default: ''
+    default: '.'
 outputs:
   result:
     description: 'Code Analysis Result'
@@ -35,4 +31,5 @@ runs:
     - code
     - -t
     - ${{ inputs.language }}
-    - ${{ inputs.flags }}
+    - -p
+    - ${{ inputs.package_metadata_path }}
