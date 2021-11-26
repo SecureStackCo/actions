@@ -35,6 +35,4 @@ runs:
     - code
     - -t
     - ${{ inputs.language }}
-    - -p
-    - ${{ inputs.package_metadata_path }}
     - ${{ inputs.flags }}
