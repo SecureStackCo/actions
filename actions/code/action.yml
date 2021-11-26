@@ -37,4 +37,4 @@ runs:
     - ${{ inputs.language }}
     - ${{ inputs.flags }}
     - -p
-    - /github/workspace/${{ package_metadata_path }}
+    - /github/workspace/${{ inputs.package_metadata_path }}
