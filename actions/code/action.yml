@@ -35,6 +35,6 @@ runs:
     - code
     - -t
     - ${{ inputs.language }}
-    - ${{ inputs.flags }}
     - -p
-    - /github/workspace/${{ inputs.package_metadata_path }}
+    - ${{ inputs.package_metadata_path }}
+    - ${{ inputs.flags }}
