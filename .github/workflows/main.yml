@@ -10,7 +10,7 @@ jobs:
         uses: SecureStackCo/actions/exposure@main
         with:
           securestack_api_key: ${{ secrets.SECURESTACK_API_KEY_SECRET }}
-          securestack_app_id: '9c6e7657-cd51-4af6-a30c-eca474b9f19c'
+          securestack_app_id: '8e9778f3-c151-4e82-a446-b945b0d3a15d'
           severity: critical
       - name: Get the exposure analysis result
         run: echo "Analysis Result:- ${{ steps.exposure.outputs.result }}"
@@ -26,7 +26,7 @@ jobs:
         uses: SecureStackCo/actions/code@main
         with:
           securestack_api_key: ${{ secrets.SECURESTACK_API_KEY_SECRET }}
-          securestack_app_id: '9c6e7657-cd51-4af6-a30c-eca474b9f19c'
+          securestack_app_id: '8e9778f3-c151-4e82-a446-b945b0d3a15d'
           severity: critical
           language: node
           package_metadata_path: '.github/workflows/test/'
@@ -37,7 +37,7 @@ jobs:
         uses: SecureStackCo/actions/secrets@main
         with:
           securestack_api_key: ${{ secrets.SECURESTACK_API_KEY_SECRET }}
-          securestack_app_id: '9c6e7657-cd51-4af6-a30c-eca474b9f19c'
+          securestack_app_id: '8e9778f3-c151-4e82-a446-b945b0d3a15d'
           severity: critical
           flags: '-z -i'
       - name: Get the secrets analysis result
