@@ -12,16 +12,13 @@ jobs:
           securestack_api_key: ${{ secrets.SECURESTACK_API_KEY_SECRET }}
           securestack_app_id: '8e9778f3-c151-4e82-a446-b945b0d3a15d'
           severity: critical
-      - name: Get the exposure analysis result
-        run: echo "Analysis Result:- ${{ steps.exposure.outputs.result }}"
       - name: Checkout repo for test node package metadata files
-        id: init
+        id: checkout
         uses: actions/checkout@v2.4.0
-      - name: Show stuff
+      - name: List Project Root
         shell: bash
-        run:
-          pwd; ls -la
-      - name: Software Compoistion Analysis Step
+        run: pwd; ls -la
+      - name: Software Composition Analysis Step
         id: code
         uses: SecureStackCo/actions/code@main
         with:
@@ -30,8 +27,6 @@ jobs:
           severity: critical
           language: node
           package_metadata_path: '.github/workflows/test/'
-      - name: Get the software composition analysis result
-        run: echo "Analysis Result:- ${{ steps.code.outputs.result }}"
       - name: Secrets Analysis Step
         id: secrets
         uses: SecureStackCo/actions/secrets@main
@@ -40,5 +35,3 @@ jobs:
           securestack_app_id: '8e9778f3-c151-4e82-a446-b945b0d3a15d'
           severity: critical
           flags: '-z -i'
-      - name: Get the secrets analysis result
-        run: echo "Analysis Result:- ${{ steps.secrets.outputs.result }}"
