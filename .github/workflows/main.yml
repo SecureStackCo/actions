@@ -13,7 +13,7 @@ jobs:
         run: pwd; ls -la
       - name: Secrets Analysis Step
         id: secrets
-        uses: NiftyBank/niftybank-app/actions/secrets@main
+        uses: SecureStackCo/actions/secrets@main
         with:
           securestack_api_key: ${{ secrets.SECURESTACK_API_KEY_SECRET }}
           securestack_app_id: '8e9778f3-c151-4e82-a446-b945b0d3a15d'
