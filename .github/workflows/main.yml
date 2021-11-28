@@ -5,33 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to execute analysis on an application
     steps:
-      - name: Exposure Analysis Step
-        id: exposure
-        uses: SecureStackCo/actions/exposure@main
-        with:
-          securestack_api_key: ${{ secrets.SECURESTACK_API_KEY_SECRET }}
-          securestack_app_id: '8e9778f3-c151-4e82-a446-b945b0d3a15d'
-          severity: critical
-      - name: Checkout repo for test node package metadata files
+      - name: Checkout repo to run secrets analysis on it
         id: checkout
         uses: actions/checkout@v2.4.0
       - name: List Project Root
         shell: bash
         run: pwd; ls -la
-      - name: Software Composition Analysis Step
-        id: code
-        uses: SecureStackCo/actions/code@main
-        with:
-          securestack_api_key: ${{ secrets.SECURESTACK_API_KEY_SECRET }}
-          securestack_app_id: '8e9778f3-c151-4e82-a446-b945b0d3a15d'
-          severity: critical
-          language: node
-          package_metadata_path: '.github/workflows/test/'
       - name: Secrets Analysis Step
         id: secrets
-        uses: SecureStackCo/actions/secrets@main
+        uses: NiftyBank/niftybank-app/actions/secrets@main
         with:
           securestack_api_key: ${{ secrets.SECURESTACK_API_KEY_SECRET }}
           securestack_app_id: '8e9778f3-c151-4e82-a446-b945b0d3a15d'
           severity: critical
-          flags: '-z -i'
+          flags: '-d 20'
