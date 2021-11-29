@@ -1,19 +1,44 @@
-# securestack
+# SecureStack GitHub Actions
 
-A GitHub Action for using SecureStack to check for vulnerabilities in your GitHub projects. A different action is required depending on which language or build tool you are using. 
+A set of GitHub Actions for using SecureStack to analyse an application and the constituent codebase for application attack surface (exposure), software composition (code) and secret vulnerabilities.
 
 ```
-name: Example workflow using SecureStack
+name: Example Workflow Using SecureStack Actions
 on: push
 jobs:
   security:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Run SecureStack to check for vulnerabilities
-        uses: securestack/actions/securestack@master
-        env:
-          SECURESTACK_API_KEY: ${{ secrets.SECURESTACK_API_KEY }}
+      - name: Checkout repo for running secrets analysis within workflow
+        id: checkout
+        uses: actions/checkout@v2.4.0
+        with:
+          fetch-depth: 0
+      - name: Exposure Analysis Step
+        id: exposure
+        uses: NiftyBank/niftybank-app/actions/exposure@master
+        with:
+          securestack_api_key: ${{ secrets.SECURESTACK_API_KEY_SECRET }}
+          securestack_app_id: ${{ secrets.SECURESTACK_APPI_ID }}
+          severity: critical
+          flags: '--dom'
+      - name: SCA Analysis Stepp
+        id: code
+        uses: NiftyBank/niftybank-app/actions/code@master
+        with:
+          securestack_api_key: ${{ secrets.SECURESTACK_API_KEY_SECRET }}
+          securestack_app_id: ${{ secrets.SECURESTACK_APPI_ID }}
+          severity: critical
+          language: node
+      - name: Secrets Analysis Step
+        id: secrets
+        uses: NiftyBank/niftybank-app/actions/secrets@master
+        with:
+          securestack_api_key: ${{ secrets.SECURESTACK_API_KEY_SECRET }}
+          securestack_app_id: ${{ secrets.SECURESTACK_APPI_ID }}
+          severity: critical
+          flags: '-d 50'
+
 ```
 
 Getting your SecureStack API Key
