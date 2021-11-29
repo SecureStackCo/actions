@@ -45,5 +45,4 @@ jobs:
 
 TODO
 
-Continuing on error
 Made with 💜 by SecureStack
