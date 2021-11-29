@@ -1,5 +1,5 @@
-name: 'SecureStack Exposure Analysis'
-description: 'Execute SecureStack Exposure Analysis'
+name: 'SecureStack Code Analysis'
+description: 'Execute SecureStack Code Analysis'
 inputs:
   securestack_api_key:
     description: 'SecureStack API key - generate one at https://app.securestack.com'
@@ -11,12 +11,12 @@ inputs:
     description: 'Severities lower than this value will not be reported; value should be one of: critical | high | medium | low'
     required: true
   language:
-    description: 'Language used for repo code; value should be one of: node | python | yarn'
+    description: 'Language used for repository code; value should be one of: node | python | yarn'
     required: true
   package_metadata_path:
     description: 'Optional location for package metadata files'
     required: false
-    default: '.'
+    default: './'
 outputs:
   result:
     description: 'Code Analysis Result'
